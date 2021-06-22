@@ -28,7 +28,7 @@ let getAccountSummary = function (account) {
   return `Account for ${account.name} has $${balance}. $${account.income} in income. $${account.expenses} in expenses.`;
 };
 
-addIncome(myAccount, 2000);
+addIncome(myAccount, 3000);
 addExpense(myAccount, 250);
 addExpense(myAccount, 160);
 console.log(getAccountSummary(myAccount));
