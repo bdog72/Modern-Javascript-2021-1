@@ -13,12 +13,11 @@ header {
   background-color: #000;
 }
 
-h1 {
+header h1 {
   text-align: center;
-  /* margin-top: 30px; */
   color: #fff;
   padding: 40px 0;
-  font-size: 70px;
+  font-size: 100px;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -35,4 +34,10 @@ h1 {
   font-size: 30px;
   font-family: 'Montserrat', sans-serif;
   margin: 10px 0;
+}
+
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 70px;
+  }
 }
