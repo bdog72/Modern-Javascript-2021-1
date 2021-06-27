@@ -1,13 +1,20 @@
 //
 //
+// ************ CODING CHALLENGE #1 *****************
 
-let javaScriptIsFun = true;
-console.log(javaScriptIsFun);
+const massMark = 78;
+const heightMark = 1.69;
 
-console.log(typeof true);
-console.log(typeof javaScriptIsFun);
-console.log(typeof 23);
-console.log(typeof 'Jonas');
+const massJohn = 92;
+const heightJohn = 1.95;
 
-javaScriptIsFun = false;
-console.log(javaScriptIsFun);
+const markBMI = massMark / heightMark ** 2;
+const johnBMI = massJohn / heightJohn ** 2;
+
+console.log(markBMI.toFixed(2));
+console.log(johnBMI);
+
+const markHigherBMI = markBMI > johnBMI;
+console.log(markHigherBMI);
+
+// **************************************************
