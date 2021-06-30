@@ -77,5 +77,33 @@
 // }
 
 // **************************************************
-console.log(123);
+
+// const inputYear = '1991';
+// console.log(Number(inputYear) + 18);
+// console.log(Number(inputYear), inputYear);
+// console.log(inputYear + 18);
+// console.log(Number('Bozo'));
+// console.log(String(123), 123);
+// //////////////////////////////
+
+// let n = '1' + 1;
+// n = n - 1;
+// console.log(n);
+
+// **************************************************
+
+const money = 0;
+if (money) {
+  console.log(`Don't spend all your money`);
+} else {
+  console.log(`You should get a job`);
+}
+
+let height;
+if (height) {
+  console.log(`Height is defined`);
+} else {
+  console.log(`Height is not defined`);
+}
+
 // **************************************************
