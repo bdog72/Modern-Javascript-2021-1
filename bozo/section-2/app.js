@@ -92,18 +92,41 @@
 
 // **************************************************
 
-const money = 0;
-if (money) {
-  console.log(`Don't spend all your money`);
-} else {
-  console.log(`You should get a job`);
-}
+// const money = 0;
+// if (money) {
+//   console.log(`Don't spend all your money`);
+// } else {
+//   console.log(`You should get a job`);
+// }
 
-let height;
-if (height) {
-  console.log(`Height is defined`);
-} else {
-  console.log(`Height is not defined`);
-}
+// let height;
+// if (height) {
+//   console.log(`Height is defined`);
+// } else {
+//   console.log(`Height is not defined`);
+// }
+
+// **************************************************
+
+// const age = 18;
+// if (age === 18) {
+//   console.log(`You are an adult`);
+// }
+
+// const favorite = Number(prompt('What is your favorite number'));
+
+// console.log(+favorite);
+
+// if (favorite == 23) {
+//   console.log(`Cool 23 is a dope number`);
+// } else if (favorite == 7) {
+//   console.log(`7 is also a cool number`);
+// } else {
+//   alert(`Number is not 7 or 23`);
+// }
+
+// if (favorite !== 23) {
+//   console.log(`Why not 23`);
+// }
 
 // **************************************************
