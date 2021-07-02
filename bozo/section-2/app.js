@@ -130,3 +130,118 @@
 // }
 
 // **************************************************
+
+// const hasDriversLicense = true;
+// const hasGoodVision = true;
+
+// console.log(hasDriversLicense && hasGoodVision);
+// console.log(hasDriversLicense || hasGoodVision);
+
+// console.log(!hasDriversLicense);
+// console.log(!hasGoodVision);
+
+// if (hasDriversLicense && hasGoodVision) {
+//   console.log(`Sarah is able to drive`);
+// } else {
+//   console.log(`Sarah is not able to drive`);
+// }
+
+// const isTired = false;
+
+// console.log(hasDriversLicense || hasGoodVision || hasGoodVision);
+
+// if (hasDriversLicense && hasGoodVision && !isTired) {
+//   console.log(`Sarah is able to drive`);
+// } else {
+//   console.log(`Sarah is not able to drive`);
+// }
+
+// **************************************************
+
+// const scoreDolphins = (97 + 112 + 101) / 3;
+// const scoreKoalas = (109 + 95 + 123) / 3;
+
+// if (scoreDolphins > scoreKoalas && scoreDolphins >= 100) {
+//   console.log(`Dolphins win the trophy`);
+// } else if (scoreKoalas > scoreDolphins && scoreKoalas >= 100) {
+//   console.log(`Koalas win the trophy`);
+// } else if (scoreDolphins === scoreKoalas) {
+//   console.log(`Both win the trophy`);
+// } else {
+//   console.log(`Neither side scored at least 100 points average`);
+// }
+
+// const scoreDolphins = (96 + 108 + 89) / 3;
+// const scoreKoalas = (88 + 91 + 110) / 3;
+
+// if (scoreDolphins > scoreKoalas) {
+//   console.log(`Dolphins win the trophy`);
+// } else if (scoreKoalas > scoreDolphins) {
+//   console.log(`Koalas win the trophy`);
+// } else if (scoreDolphins === scoreKoalas) {
+//   console.log(`Both win the trophy`);
+// }
+
+// if (scoreDolphins > scoreKoalas) {
+//   console.log(`Dolphins Win`);
+// } else if (scoreDolphins < scoreKoalas) {
+//   console.log(`Koalas Win`);
+// } else if (scoreDolphins === scoreKoalas) {
+//   console.log(`Tie Score Bozo`);
+// } else if (scoreDolphins && scoreKoalas >= 100) {
+//   console.log(`No one Wins Bozo`);
+// }
+
+// console.log(+scoreDolphins.toFixed(2));
+// console.log(+scoreKoalas.toFixed(2));
+
+// **************************************************
+
+// let day = 'Thursday';
+// day = day.toLowerCase();
+
+// switch (day) {
+//   case 'Monday':
+//     console.log(1);
+//     console.log(12);
+//     break;
+//   case 'Tuesday':
+//     console.log(123);
+//     break;
+//   case 'Wednesday':
+//   case 'thursday':
+//     console.log(1234);
+//     break;
+//   case 'Friday':
+//     console.log(12345);
+//     break;
+//   case 'Saturday':
+//   case 'Sunday':
+//     console.log(123456);
+//     break;
+//   default:
+//     console.log(`Bozo`);
+//     break;
+// }
+
+// let day = 'Thursday';
+// day = day.toLowerCase();
+
+// if (day === 'monday') {
+//   console.log(1);
+//   console.log(12);
+// } else if (day === 'tuesday') {
+//   console.log(123);
+// } else if (day === 'wednesday' || day === 'thursday') {
+//   console.log(1234);
+// } else if (day === 'friday') {
+//   console.log(12345);
+// } else if (day === 'saturday' || day === 'sunday') {
+//   console.log(123456);
+// } else {
+//   console.log(`You are bozo`);
+// }
+
+// **************************************************
+
+// **************************************************
