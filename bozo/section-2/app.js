@@ -244,4 +244,34 @@
 
 // **************************************************
 
+// if (23 > 10) {
+//   const str = `23 is larger than 10`;
+//   console.log(str);
+// }
+
+// const age = 23;
+// age >= 18
+//   ? console.log(`You can drink alcohol`)
+//   : console.log(`You can't drink alcohol`);
+
+// const drink = age >= 18 ? 'Wine' : 'Water';
+// console.log(`I like to drink ${drink}`);
+
+// **************************************************
+
+const bill = 275;
+const tip = bill <= 300 && bill >= 50 ? bill * 0.15 : bill * 0.2;
+console.log(tip);
+
+// let tip;
+// let billValue = [275, 40, 430];
+
+// let bill = 275;
+
+// if (bill >= 50 && bill <= 300) {
+//   tip = 0.15;
+// } else {
+//   tip = 0.2;
+// }
+
 // **************************************************
