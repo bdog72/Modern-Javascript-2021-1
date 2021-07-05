@@ -52,4 +52,63 @@
 
 // **************************************************
 
+// const calcAge2 = (birthYear) => {
+//   return 2021 - birthYear;
+// };
+
+// const age2 = calcAge2(2000);
+// console.log(age2);
+
+// const yearsUntilRetirement = (birthYear, firstName) => {
+//   const age = 2021 - birthYear;
+//   const yearsLeft = 65 - age;
+//   // return yearsLeft;
+//   return `${firstName} has ${yearsLeft} years left until retirement`;
+// };
+
+// console.log(yearsUntilRetirement(1972));
+// const bozo = yearsUntilRetirement(1972, 'Bozo');
+// console.log(bozo);
+
+// **************************************************
+
+// function cutFruitPieces(fruit) {
+//   return fruit * 4;
+// }
+
+// function fruitProcessor(apples, oranges) {
+//   const applePieces = cutFruitPieces(apples);
+//   const orangePieces = cutFruitPieces(oranges);
+
+//   const juice = `Juice with ${applePieces} apples and ${orangePieces} oranges`;
+//   return juice;
+// }
+
+// const bozo = fruitProcessor(2, 3);
+// console.log(bozo);
+
+// **************************************************
+
+// const calcAge = function (birthYear) {
+//   return 2021 - birthYear;
+// };
+
+// const yearsUntilRetirement = function (birthYear, firstName) {
+//   // const age = 2021 - birthYear;
+//   const age = calcAge(birthYear);
+//   const yearsLeft = 65 - age;
+//   if (yearsLeft > 0) {
+//     return `${firstName} has ${yearsLeft} years left until retirement`;
+//   } else {
+//     return -1;
+//     console.log('Bozo Already Retired');
+//   }
+// };
+
+// console.log(yearsUntilRetirement(1972, 'Bozo'));
+// console.log(yearsUntilRetirement(1952, 'Bozo'));
+// const dork = yearsUntilRetirement(1952, 'Bozo');
+
+// **************************************************
+
 // **************************************************
