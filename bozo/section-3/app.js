@@ -111,4 +111,34 @@
 
 // **************************************************
 
+// const calcAverage = (a, b, c) => {
+//   // checkWinner();
+//   return (a + b + c) / 3;
+// };
+
+// const checkWinner = (dolphinsAverage, koalasAverage) => {
+//   const bozo = [dolphinsAverage, koalasAverage];
+//   return bozo;
+//   console.log(dolphinsAverage);
+//   console.log(koalasAverage);
+// };
+
+// const checkWinner = (avgDolphins, avgKoalas) => {
+//   if (avgDolphins >= 2 * avgKoalas) {
+//     console.log(`Dolphins win ${avgDolphins} vs ${avgKoalas}`);
+//   } else if (avgKoalas >= 2 * avgDolphins) {
+//     console.log(`Koalas win ${avgKoalas} vs ${avgDolphins}`);
+//   } else {
+//     console.log(`No one wins bozo`);
+//   }
+// };
+
+// const dolphinsAverage = calcAverage(44, 23, 71);
+// console.log(dolphinsAverage);
+
+// const koalasAverage = calcAverage(65, 54, 49);
+// console.log(koalasAverage);
+
+// checkWinner(dolphinsAverage, koalasAverage);
+// checkWinner(200, 500);
 // **************************************************
