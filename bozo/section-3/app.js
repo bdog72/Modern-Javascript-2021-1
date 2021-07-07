@@ -142,3 +142,99 @@
 // checkWinner(dolphinsAverage, koalasAverage);
 // checkWinner(200, 500);
 // **************************************************
+
+// const friends = ['Michael', 'Steven', 'Peter'];
+// console.log(friends);
+
+// const years = new Array(1991, 1984, 2008, 2020);
+// console.log(years);
+
+// console.log(friends.length);
+// console.log(friends[friends.length - 1]);
+
+// friends[2] = 'Jay';
+// console.log(friends);
+
+// const jonas = ['JOnas', 'Bozo', 2037 - 1991, 'Teacher', friends];
+// console.log(jonas);
+
+// function calcAge1(birthYear) {
+//   return 2021 - birthYear;
+// }
+
+// const years = [1990, 1967, 2002, 2010, 2018];
+
+// const age1 = calcAge1(years[0]);
+// const age2 = calcAge1(years[1]);
+// const age3 = calcAge1(years[years.length - 1]);
+// console.log(age1);
+// console.log(age2);
+// console.log(age3);
+
+// const ages = [
+//   calcAge1(years[0]),
+//   calcAge1(years[1]),
+//   calcAge1(years[years.length - 1]),
+// ];
+
+// console.log(ages);
+
+// **************************************************
+
+// const friends = ['Michael', 'Steven', 'Peter'];
+// const newLength = friends.push('Jay');
+// console.log(friends);
+// console.log(newLength);
+
+// friends.unshift('John');
+// console.log(friends);
+
+// friends.pop();
+// const popped = friends.pop();
+
+// console.log(popped);
+// console.log(friends);
+
+// friends.shift();
+// console.log(friends);
+
+// console.log(friends.indexOf('Steven'));
+// console.log(friends.indexOf('Bob'));
+
+//////////////////////////////////////////////////
+
+// const friends1 = ['Michael', 'Steven', 'Peter'];
+// if (friends.includes('Steven')) {
+//   console.log('Bozo');
+// }
+
+// **************************************************
+
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+
+// const bills = [125, 555, 44];
+
+// const tip = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[3])];
+// console.log(tip);
+
+// console.log(calcTip(100));
+
+// const bills = [125, 555, 44];
+
+// function calcTip(bills) {
+//   bills.forEach((bill) => {
+//     if (bill <= 300 && bill >= 50) {
+//       console.log(`The bill was 15% -- $${bill * 0.15}`);
+//     } else {
+//       console.log(`The bill was 20% -- $${bill * 0.2}`);
+//     }
+//     console.log(bill);
+//   });
+// }
+
+// calcTip(bills);
+
+// **************************************************
+// **************************************************
