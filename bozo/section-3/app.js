@@ -237,4 +237,60 @@
 // calcTip(bills);
 
 // **************************************************
+// const bozo = {
+//   firstName: 'Brian',
+//   lastName: 'Bycynski',
+//   age: 2021 - 1972,
+//   job: 'Developer',
+//   friends: ['Molly', 'Josey', 'Crystal'],
+// };
+
+// console.log(bozo.lastName);
+// console.log(bozo['age']);
+
+// const nameKey = 'Name';
+// console.log(bozo['first' + nameKey]);
+// console.log(bozo['last' + nameKey]);
+
+// prompt('What do you ');
+
+// console.log(
+//   `${bozo['firstName']} has ${bozo.friends.length} friends. ${bozo.friends[0]}, ${bozo.friends[1]}, ${bozo.friends[2]}. And his best friend is ${bozo.friends[0]}`
+// );
+
+// **************************************************
+
+// const bozo = {
+//   firstName: 'Brian',
+//   lastName: 'Bycynski',
+//   birthYear: 1972,
+//   hasDriversLicense: true,
+//   job: 'Developer',
+//   friends: ['Molly', 'Josey', 'Crystal'],
+
+//   calcAge() {
+//     return 2021 - this.birthYear;
+//   },
+// calcAge: () => {
+//   return 2021 - bozo.birthYear;
+// },
+
+// driverLicense() {
+//   if (this.hasDriversLicense) {
+//     return 'a drivers license';
+//   }
+// },
+
+//   getSummary() {
+//     return `${this.firstName} ${
+//       this.lastName
+//     } is a ${this.calcAge()} year old ${this.job}. He has ${
+//       this.friends.length
+//     } friends. He has ${bozo.hasDriversLicense ? 'a' : 'no'} dirvers license`;
+//   },
+// };
+
+// const dork = bozo.getSummary();
+// console.log(dork);
+
 // **************************************************
