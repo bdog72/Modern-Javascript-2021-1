@@ -294,3 +294,80 @@
 // console.log(dork);
 
 // **************************************************
+
+// const mark = {
+//   fullName: 'Mark Miller',
+//   mass: 78,
+//   height: 1.69,
+
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
+
+// const john = {
+//   fullName: 'John Smith',
+//   mass: 92,
+//   height: 1.95,
+
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
+
+// mark.calcBMI();
+// console.log(mark.bmi);
+
+// john.calcBMI();
+// console.log(john.bmi);
+
+// if (mark.bmi > john.bmi) {
+//   console.log(
+//     `Mark BMI (${mark.bmi.toFixed(
+//       2
+//     )}) is higher than John BMI (${john.bmi.toFixed(2)}) `
+//   );
+// }
+
+// const person1 = {
+//   // firstName: 'Mark',
+//   // lastName: 'Miller',
+//   fullName: 'Mark Miller',
+//   mass: 78,
+//   height: 1.69,
+
+//   calcBMI: function () {
+//     let BMI;
+//     BMI = this.mass / this.height ** 2;
+//     return BMI;
+//   },
+// };
+
+// const person2 = {
+//   firstName: 'John',
+//   lastName: 'Smith',
+//   mass: 92,
+//   height: 1.95,
+
+//   calcBMI: function () {
+//     let BMI;
+//     BMI = this.mass / this.height ** 2;
+//     return BMI;
+//   },
+// };
+
+// const bozo1 = `${person1.firstName} ${person1.lastName}`;
+// console.log(bozo1);
+
+// const bozo2 = person2;
+// console.log(bozo2.calcBMI());
+
+// **************************************************
+
+for (let rep = 1; rep <= 20; rep++) {
+  console.log(`bozo ${rep}`);
+}
+
+// **************************************************
