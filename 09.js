@@ -62,14 +62,80 @@ const restaurant = {
   },
 };
 
-// console.log(restaurant.openingHours.fri?.open);
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log(`You are NOT allowed on board`);
+  } else {
+    console.log(`Welcome aboard`);
+  }
+  // console.log(baggage);
+};
 
-const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+checkBaggage(`I have a laptop, some Food and a pocket Knife`);
+checkBaggage(`Socks and camera`);
+checkBaggage(`Got some snacks and a gun for protection`);
 
-for (const day of days) {
-  let open = restaurant.openingHours[day]?.open || 'closed';
+// const airline = 'TAP Air Portugal';
+// const plane = 'A320';
 
-  console.log(`On ${day} we are open at ${open}`);
-}
+// const email = 'bozo@bozo.com';
+// const loginEmail = '  BoZo@Bozo.com \n';
 
-console.log(restaurant.order?.(0, 1) ?? 'Method does not exist');
+// const normalizedEmail = loginEmail.toLowerCase().trim();
+// console.log(normalizedEmail);
+
+// if (email === normalizedEmail) {
+//   console.log(`Good to go Bozo Boy`);
+// }
+
+// const priceGB = '288,97*';
+// const priceUS = priceGB.replace('*', '$').replace(',', '.');
+// console.log(priceUS);
+
+// const announcement = 'Hey bozo, you bozo';
+// console.log(announcement.replaceAll('bozo', 'dork'));
+// console.log(announcement.replace(/bozo/g, 'dork'));
+
+// const plane1 = 'Airbus A320neo';
+// console.log(plane1.includes('A320'));
+
+// if (plane1.startsWith('Airbus') || plane1.endsWith('neo')) {
+//   console.log(`Bozo`);
+// }
+
+// const lowerEmail = loginEmail.toLowerCase();
+// console.log(lowerEmail);
+
+// const trimEmail = lowerEmail.trim();
+// console.log(trimEmail);
+
+// const compareStrings = email.localeCompare(trimEmail);
+// console.log(email);
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// const passenger = 'jOnAs';
+// const passengerLower = passenger.toLowerCase();
+
+// console.log(passengerLower);
+// const passengerCorrect =
+//   passengerLower[0].toUpperCase() + passengerLower.slice(1);
+
+// console.log(passengerCorrect);
+// console.log(plane[0]);
+
+// const checkMiddleSeat = function (seat) {
+//   const s = seat.slice(-1);
+
+//   if (s === 'B' || s === 'E') {
+//     console.log(`You have a middle seat Bozo Boy`);
+//   } else {
+//     console.log(`You don't have a middle seat Bozo Boy`);
+//   }
+// };
+
+// checkMiddleSeat('11B');
+// checkMiddleSeat('23C');
+// checkMiddleSeat('3E');

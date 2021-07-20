@@ -42,31 +42,45 @@ const game = {
   },
 };
 
-const [players1, players2] = game.players;
-// console.log(players1);
-// console.log(players2);
+// for (const [i, player] of game.scored.entries()) {
+//   console.log(`Goal ${i + 1}: ${player}`);
+// }
 
-const [gk, ...fieldPlayers] = players1;
-// console.log(gk);
-// console.log(fieldPlayers);
+// const odds = Object.values(game.odds);
+// let average = 0;
 
-const allPlayers = [...players1, ...players2];
-// console.log(allPlayers);
+// for (const odd of odds) average += odd;
+// average /= odds.length;
+// console.log(average);
 
-const players1Final = [...players1, 'A', 'B', 'C'];
-// console.log(players1Final);
+// for (const [team, odd] of Object.entries(game.odds)) {
+//   const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+//   console.log(`Odd of ${teamStr} ${odd}`);
+// }
 
-const {
-  odds: { team1, x: draw, team2 },
-} = game;
-// console.log(team1, draw, team2);
+// const gameEvents = new Map([
+//   [17, '⚽️ GOAL'],
+//   [36, '🔁 Substitution'],
+//   [47, '⚽️ GOAL'],
+//   [61, '🔁 Substitution'],
+//   [64, '🔶 Yellow card'],
+//   [69, '🔴 Red card'],
+//   [70, '🔁 Substitution'],
+//   [72, '🔁 Substitution'],
+//   [76, '⚽️ GOAL'],
+//   [80, '⚽️ GOAL'],
+//   [92, '🔶 Yellow card'],
+// ]);
 
-const printGoals = function (...players) {
-  console.log(`${players.length} goals were scored`);
-};
+// const events = [...new Set(gameEvents.values())];
+// console.log(events);
 
-printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
-printGoals('Davies', 'Muller');
-printGoals(...game.scored);
+// gameEvents.delete(64);
 
-team1 < team2 && console.log(`Team 1 won`);
+// const time = [...gameEvents.keys()].pop();
+// console.log(`An event happened, on average, every ${time} minutes`);
+// console.log(time);
+
+// for (const [min, event] of gameEvents) {
+//   console.log(`[ Half] ${min}: ${event}`);
+// }
