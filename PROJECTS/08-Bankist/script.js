@@ -7,7 +7,7 @@
 // Data
 const account1 = {
   // owner: 'Jonas Schmedtmann',
-  owner: 'test a',
+  owner: 'Test A',
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
@@ -15,7 +15,7 @@ const account1 = {
 
 const account2 = {
   // owner: 'Jessica Davis',
-  owner: 'test b',
+  owner: 'Test B',
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
@@ -23,7 +23,7 @@ const account2 = {
 
 const account3 = {
   // owner: 'Steven Thomas Williams',
-  owner: 'test c',
+  owner: 'Test C',
   movements: [200, -200, 340, -300, -20, 50, 400, -460],
   interestRate: 0.7,
   pin: 3333,
@@ -31,7 +31,7 @@ const account3 = {
 
 const account4 = {
   // owner: 'Sarah Smith',
-  owner: 'test d',
+  owner: 'Test D',
   movements: [430, 1000, 700, 50, 90],
   interestRate: 1,
   pin: 4444,
@@ -87,13 +87,131 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce(function (acc, mov) {
+    return acc + mov;
+  }, 0);
+  labelBalance.textContent = `$${balance} USD`;
+};
+
+calcDisplayBalance(account1.movements);
+
+const createUserNames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.userName = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map((name) => {
+        return name[0];
+      })
+      .join('');
+  });
+};
+
+createUserNames(accounts);
+
 /////////////////////////////////////////////////
 // LECTURES
 /////////////////////////////////////////////////
 
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+const calcAverage = function (ages) {
+  const humanAges = ages.map(function (age) {
+    return age <= 2 ? 2 * age : 16 + age * 4;
+  });
+  const adults = humanAges.filter(function (age) {
+    return age >= 18;
+  });
+  console.log(humanAges);
+  console.log(adults);
+
+  const adultAverage = adults.reduce((accumulator, current) => {
+    return accumulator + current / adults.length;
+  }, 0);
+  console.log(adultAverage);
+};
+
+calcAverage([5, 2, 4, 1, 15, 8, 3]);
+
+// [5, 2, 4, 1, 15, 8, 3]
+// [16, 6, 10, 5, 6, 1, 4]
+
+/////////////////////////////////////////////////
+
+// const balance = movements.reduce((accumulator, current, i, array) => {
+//   console.log(`Iteration ${i + 1}: ${accumulator}`);
+//   return accumulator + current;
+// }, 0);
+
+// console.log(balance);
+
+// const max = movements.reduce((acc, mov) => {
+//   if (acc > mov) {
+//     return acc;
+//   } else {
+//     return mov;
+//   }
+// }, movements[0]);
+
+// console.log(max);
+
+/////////////////////////////////////////////////
+
+// const deposits = movements.filter(function (mov) {
+//   return mov > 0;
+// });
+
+// const withdraws = movements.filter(function (mov) {
+//   return mov < 0;
+// });
+
+// console.log(movements);
+// console.log(deposits);
+// console.log(withdraws);
+
+// movements.filter(function (mov, i) {
+//   mov > 0
+//     ? console.log(i + 1 + ':' + ' ' + '+')
+//     : console.log(i + 1 + ':' + ' ' + '-');
+// });
+
+/////////////////////////////////////////////////
+
+// const euroToUSD = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * euroToUSD;
+// });
+
+// console.log(movements);
+// console.log(movementsUSD);
+
+// const movementsForOf = [];
+// for (const mov of movements) {
+//   movementsForOf.push(Math.trunc(mov * euroToUSD));
+//   console.log(movementsForOf);
+// }
+
+// const movementsDescription = movements.map((mov, i, arr) => {
+//   // return mov > 0
+//   //   ? `${i + 1}: You deposited ${mov}`
+//   //   : `${i + 1}: You withdrew ${Math.abs(mov)}`;
+
+//   return `${i + 1}: You deposited ${
+//     mov > 0 ? 'deposited' : 'withdrew'
+//   } ${Math.abs(mov)}`;
+
+//   // if (mov > 0) {
+//   //   return `${i + 1}. You deposited ${mov}`;
+//   // } else {
+//   //   return `${i + 1}. You withdrew ${Math.abs(mov)}`;
+//   // }
+// });
+
+// console.log(movementsDescription);
 
 // const checkDogs = function (dogsJulia, dogsKate) {
 //   const dogsJuliaCorrected = dogsJulia.slice();
