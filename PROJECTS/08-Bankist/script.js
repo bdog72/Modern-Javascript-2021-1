@@ -78,7 +78,7 @@ const displayMovements = function (movements) {
     const html = `
       <div class="movements__row">
         <div class="movements__type movements__type--${type}">${i + 1} ${type}</div>
-        <div class="movements__value">${mov}</div>
+        <div class="movements__value">$${mov}</div>
       </div>
     `;
     bozo.containerMovements.insertAdjacentHTML('afterbegin', html);
@@ -95,6 +95,48 @@ const calcDisplayBalance = function (movements) {
 };
 
 calcDisplayBalance(account1.movements);
+
+const calcDisplaySummary = function (movements) {
+  const incomes = movements.filter((mov) => {
+    return mov > 0;
+  });
+
+  const addPositiveIncomes = incomes.reduce((acc, mov) => {
+    return acc + mov;
+  });
+
+  labelSumIn.textContent = `$${addPositiveIncomes}`;
+
+  const out = movements
+    .filter((mov) => {
+      return mov < 0;
+    })
+    .reduce((acc, mov) => {
+      return acc + mov;
+    });
+
+  labelSumOut.textContent = `$${out}`;
+
+  const interest = movements.filter((mov) => {
+    return mov > 0;
+  });
+
+  const interestAmounts = interest
+    .map((deposit) => {
+      return (deposit * 1.2) / 100;
+    })
+    .filter((int, i, arr) => {
+      // console.log(arr);
+      return int >= 1;
+    })
+    .reduce((acc, int) => {
+      return acc + int;
+    }, 0);
+
+  labelSumInterest.textContent = `${interestAmounts}`;
+};
+
+calcDisplaySummary(account1.movements);
 
 const createUserNames = function (accs) {
   accs.forEach(function (acc) {
@@ -117,24 +159,83 @@ createUserNames(accounts);
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+/////////////////////////////////////////////////
 
-const calcAverage = function (ages) {
-  const humanAges = ages.map(function (age) {
-    return age <= 2 ? 2 * age : 16 + age * 4;
-  });
-  const adults = humanAges.filter(function (age) {
-    return age >= 18;
-  });
-  console.log(humanAges);
-  console.log(adults);
+// const euroToUSD = 1.1;
 
-  const adultAverage = adults.reduce((accumulator, current) => {
-    return accumulator + current / adults.length;
-  }, 0);
-  console.log(adultAverage);
+// const totalDepositsInUSD = movements
+//   .filter((mov) => {
+//     return mov > 0;
+//   })
+//   .map((mov) => {
+//     return Math.trunc(mov * euroToUSD);
+//   })
+//   .reduce((acc, mov) => {
+//     return acc + mov;
+//     // if (a > b) {
+//     //   return a;
+//     // } else {
+//     //   return b;
+//     // }
+//   }, 0);
+
+// console.log(totalDepositsInUSD);
+
+/////////////////////////////////////////////////
+
+// const calcAverage = function (ages) {
+//   ages
+//     .map(function (age) {
+//       return age <= 2 ? 2 * age : 16 + age * 4;
+//     })
+//     .filter(function (age) {
+//       return age >= 18;
+//     })
+//     .reduce((accumulator, current) => {
+//       return accumulator + current / 5;
+//     }, 0);
+//   // console.log(adultAverage);
+// };
+// console.log(humanAges);
+// console.log(adults);
+
+// console.log(calcAverage([5, 2, 4, 1, 15, 8, 3]));
+
+const calcAverage = (ages) => {
+  return ages
+    .map((age) => {
+      return age <= 2 ? 2 * age : 16 + age * 4;
+    })
+    .filter((age) => {
+      return age >= 18;
+    })
+    .reduce((acc, age, i, arr) => {
+      return acc + age / arr.length;
+    }, 0);
 };
 
-calcAverage([5, 2, 4, 1, 15, 8, 3]);
+const avg1 = calcAverage([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverage([16, 6, 10, 5, 6, 1, 4]);
+console.log(avg1);
+console.log(avg2);
+
+// const calcAverage = function (ages) {
+//   const humanAges = ages.map(function (age) {
+//     return age <= 2 ? 2 * age : 16 + age * 4;
+//   });
+//   const adults = humanAges.filter(function (age) {
+//     return age >= 18;
+//   });
+//   console.log(humanAges);
+//   console.log(adults);
+
+//   const adultAverage = adults.reduce((aumulator, current) => {
+//     return accumulator + current / adults.length;
+//   }, 0);
+//   console.log(adultAverage);
+// };
+
+// calcAverage([5, 2, 4, 1, 15, 8, 3]);
 
 // [5, 2, 4, 1, 15, 8, 3]
 // [16, 6, 10, 5, 6, 1, 4]
