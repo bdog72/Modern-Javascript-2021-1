@@ -211,6 +211,25 @@ btnTransfer.addEventListener('click', function (e) {
   }
 });
 
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => {
+      return mov >= amount * 0.1;
+    })
+  ) {
+    // Add Movement
+    currentAccount.movements.push(amount);
+    // Update UI
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = '';
+});
+
 btnClose.addEventListener('click', function (e) {
   e.preventDefault();
 
@@ -238,6 +257,35 @@ btnClose.addEventListener('click', function (e) {
 /////////////////////////////////////////////////
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+/////////////////////////////////////////////////
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// const arrDeep = [[1, 2, 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// const accountMovements = accounts.flatMap((acc) => acc.movements);
+// console.log(accountMovements);
+
+// const overAllBalance = accountMovements.reduce((acc, curr) => acc + curr, 0);
+// console.log(overAllBalance);
+
+/////////////////////////////////////////////////
+
+// console.log(movements);
+// console.log(movements.includes(-130));
+
+// const anyDeposits = movements.some((mov) => mov > 5000);
+// console.log(anyDeposits);
+
+// console.log(movements.includes(130));
+// console.log(movements.some((mov) => mov > 0));
+
+// const deposit = (mov) => mov > 0;
+// console.log(movements.every(deposit));
+// console.log(account4.movements.every(deposit));
 
 /////////////////////////////////////////////////
 
