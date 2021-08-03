@@ -69,9 +69,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     // prettier-ignore
@@ -252,6 +255,15 @@ btnClose.addEventListener('click', function (e) {
   inputCloseUsername.value = inputClosePin.value = '';
 });
 
+let sorted = false;
+
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log(`Bozo`);
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
+});
+
 /////////////////////////////////////////////////
 // LECTURES
 /////////////////////////////////////////////////
@@ -260,284 +272,48 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
-// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
-// console.log(arr.flat());
+const bankDepositSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((mov) => mov > 0)
+  .reduce((acc, curr) => acc + curr, 0);
 
-// const arrDeep = [[1, 2, 3], [4, [5, 6]], 7, 8];
-// console.log(arrDeep.flat(2));
+console.log(bankDepositSum);
 
-// const accountMovements = accounts.flatMap((acc) => acc.movements);
-// console.log(accountMovements);
+// const numDeposits1000 = accounts
+//   .flatMap((acc) => acc.movements)
+//   .filter((mov) => mov >= 1000).length;
 
-// const overAllBalance = accountMovements.reduce((acc, curr) => acc + curr, 0);
-// console.log(overAllBalance);
+const numDeposits1000 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((count, cur) => (cur >= 1000 ? ++count : count), 0);
 
-/////////////////////////////////////////////////
+console.log(numDeposits1000);
+console.log(`-------------`);
 
-// console.log(movements);
-// console.log(movements.includes(-130));
+const { deposits, withdraws } = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sum, curr) => {
+      curr > 0 ? (sum.deposits += curr) : (sum.withdraws += curr);
+      return sum;
+    },
+    { deposits: 0, withdraws: 0 }
+  );
 
-// const anyDeposits = movements.some((mov) => mov > 5000);
-// console.log(anyDeposits);
+console.log(deposits, withdraws);
 
-// console.log(movements.includes(130));
-// console.log(movements.some((mov) => mov > 0));
-
-// const deposit = (mov) => mov > 0;
-// console.log(movements.every(deposit));
-// console.log(account4.movements.every(deposit));
-
-/////////////////////////////////////////////////
-
-// const firstWithdraw = movements.find((mov) => {
-//   return mov < 0;
-// });
-
-// console.log(movements);
-// console.log(firstWithdraw);
-
-// console.log(accounts);
-
-// const account = accounts.find((acc) => {
-//   return acc.owner === 'Test A';
-// });
-
-// console.log(account);
-/////////////////////////////////////////////////
-
-// const euroToUSD = 1.1;
-
-// const totalDepositsInUSD = movements
-//   .filter((mov) => {
-//     return mov > 0;
-//   })
-//   .map((mov) => {
-//     return Math.trunc(mov * euroToUSD);
-//   })
-//   .reduce((acc, mov) => {
-//     return acc + mov;
-//     // if (a > b) {
-//     //   return a;
-//     // } else {
-//     //   return b;
-//     // }
-//   }, 0);
-
-// console.log(totalDepositsInUSD);
+const convertTitleCase = function (title) {};
 
 /////////////////////////////////////////////////
+// const y = Array.from({ length: 7 }, () => 1);
+// console.log(y);
 
-// const calcAverage = function (ages) {
-//   ages
-//     .map(function (age) {
-//       return age <= 2 ? 2 * age : 16 + age * 4;
-//     })
-//     .filter(function (age) {
-//       return age >= 18;
-//     })
-//     .reduce((accumulator, current) => {
-//       return accumulator + current / 5;
-//     }, 0);
-//   // console.log(adultAverage);
-// };
-// console.log(humanAges);
-// console.log(adults);
+// const z = Array.from({ length: 7 }, (_, i) => i + 1);
+// console.log(z);
 
-// console.log(calcAverage([5, 2, 4, 1, 15, 8, 3]));
-
-// const calcAverage = (ages) => {
-//   return ages
-//     .map((age) => {
-//       return age <= 2 ? 2 * age : 16 + age * 4;
-//     })
-//     .filter((age) => {
-//       return age >= 18;
-//     })
-//     .reduce((acc, age, i, arr) => {
-//       return acc + age / arr.length;
-//     }, 0);
-// };
-
-// const avg1 = calcAverage([5, 2, 4, 1, 15, 8, 3]);
-// const avg2 = calcAverage([16, 6, 10, 5, 6, 1, 4]);
-// console.log(avg1);
-// console.log(avg2);
-
-// const calcAverage = function (ages) {
-//   const humanAges = ages.map(function (age) {
-//     return age <= 2 ? 2 * age : 16 + age * 4;
-//   });
-//   const adults = humanAges.filter(function (age) {
-//     return age >= 18;
-//   });
-//   console.log(humanAges);
-//   console.log(adults);
-
-//   const adultAverage = adults.reduce((aumulator, current) => {
-//     return accumulator + current / adults.length;
-//   }, 0);
-//   console.log(adultAverage);
-// };
-
-// calcAverage([5, 2, 4, 1, 15, 8, 3]);
-
-// [5, 2, 4, 1, 15, 8, 3]
-// [16, 6, 10, 5, 6, 1, 4]
-
-/////////////////////////////////////////////////
-
-// const balance = movements.reduce((accumulator, current, i, array) => {
-//   console.log(`Iteration ${i + 1}: ${accumulator}`);
-//   return accumulator + current;
-// }, 0);
-
-// console.log(balance);
-
-// const max = movements.reduce((acc, mov) => {
-//   if (acc > mov) {
-//     return acc;
-//   } else {
-//     return mov;
-//   }
-// }, movements[0]);
-
-// console.log(max);
-
-/////////////////////////////////////////////////
-
-// const deposits = movements.filter(function (mov) {
-//   return mov > 0;
-// });
-
-// const withdraws = movements.filter(function (mov) {
-//   return mov < 0;
-// });
-
-// console.log(movements);
-// console.log(deposits);
-// console.log(withdraws);
-
-// movements.filter(function (mov, i) {
-//   mov > 0
-//     ? console.log(i + 1 + ':' + ' ' + '+')
-//     : console.log(i + 1 + ':' + ' ' + '-');
-// });
-
-/////////////////////////////////////////////////
-
-// const euroToUSD = 1.1;
-
-// const movementsUSD = movements.map(function (mov) {
-//   return mov * euroToUSD;
-// });
-
-// console.log(movements);
-// console.log(movementsUSD);
-
-// const movementsForOf = [];
-// for (const mov of movements) {
-//   movementsForOf.push(Math.trunc(mov * euroToUSD));
-//   console.log(movementsForOf);
+// var arr = [];
+// while (arr.length < 100) {
+//   var r = Math.floor(Math.random() * 100) + 1;
+//   if (arr.indexOf(r) === -1) arr.push(r);
 // }
-
-// const movementsDescription = movements.map((mov, i, arr) => {
-//   // return mov > 0
-//   //   ? `${i + 1}: You deposited ${mov}`
-//   //   : `${i + 1}: You withdrew ${Math.abs(mov)}`;
-
-//   return `${i + 1}: You deposited ${
-//     mov > 0 ? 'deposited' : 'withdrew'
-//   } ${Math.abs(mov)}`;
-
-//   // if (mov > 0) {
-//   //   return `${i + 1}. You deposited ${mov}`;
-//   // } else {
-//   //   return `${i + 1}. You withdrew ${Math.abs(mov)}`;
-//   // }
-// });
-
-// console.log(movementsDescription);
-
-// const checkDogs = function (dogsJulia, dogsKate) {
-//   const dogsJuliaCorrected = dogsJulia.slice();
-//   dogsJuliaCorrected.splice(0, 1);
-//   dogsJuliaCorrected.splice(-2);
-
-//   const dogs = dogsJuliaCorrected.concat(dogsKate);
-//   console.log(dogs);
-
-//   dogs.forEach(function (dog, i) {
-//     if (dog >= 3) {
-//       console.log(`Dog ${i + 1} is an adult, and is ${dog} years old `);
-//     } else {
-//       console.log(`Dog ${i + 1} is an puppy, and is ${dog} years old `);
-//     }
-//   });
-// };
-
-// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
-
-// let arr = ['a', 'b', 'c', 'd', 'e'];
-
-// // Slice
-// console.log(arr.slice(2));
-// console.log(arr.slice(2, 4));
-// console.log(arr.slice(-2));
-// console.log(arr.slice(-1));
-// console.log(arr.slice(1, -2));
-// console.log(arr.slice());
-// console.log([...arr]);
-
-// // Splice
-// // console.log(arr.splice(2));
-// arr.splice(-1);
 // console.log(arr);
-
-// // Reverse
-// arr = ['a', 'b', 'c', 'd', 'e'];
-// const arr2 = ['j', 'i', 'h', 'g', 'j'];
-// console.log(arr2.reverse());
-// console.log(arr2);
-
-// // Concat
-// const letters = arr.concat(arr2);
-// console.log(letters);
-// console.log([...arr, ...arr2]);
-
-// // Join
-// console.log(letters.join(' - '));
-
-/////////////////////////////////////////////////
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-// for (const [i, movement] of movements.entries()) {
-//   if (movement > 0) {
-//     console.log(`${i + 1}. You deposited ${movement}`);
-//   } else {
-//     console.log(`${i + 1}. You withdrew ${Math.abs(movement)}`);
-//   }
-// }
-
-// console.log('');
-// console.log('-----------------');
-// console.log('');
-
-// movements.forEach(function (mov, i, arr) {
-//   mov > 0
-//   ? console.log(`${i + 1}. You deposited ${mov}`)
-//   : console.log(`${i + 1}. You withdrew ${Math.abs(mov)}`);
-// });
-
-/////////////////////////////////////////////////
-
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
-
-// currencies.forEach(function (value, key, map) {
-//   console.log(`${key}: ${value}`);
-// });
-
-/////////////////////////////////////////////////
