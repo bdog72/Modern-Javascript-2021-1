@@ -30,7 +30,7 @@ nav {
   padding: 0 2rem;
 }
 
-.login-credentials-container {
+/* .login-credentials-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,7 +40,7 @@ nav {
 .login-credentials-container h3 {
   padding: 5px 0;
   text-align: justify;
-}
+} */
 
 .welcome {
   font-size: 1.9rem;
@@ -93,6 +93,11 @@ nav {
 .btn--sort:focus {
   outline: none;
   color: #777;
+}
+
+.creds {
+  text-align: center;
+  margin: 5px 0;
 }
 
 /* MAIN */
