@@ -53,6 +53,7 @@ nav {
 
 .login {
   display: flex;
+  align-items: center;
 }
 
 .login__input {
@@ -80,9 +81,14 @@ nav {
 
 .login__btn {
   border: none;
-  background: none;
+  border-radius: 50%;
+  /* background: none; */
+  background-color: #000;
   font-size: 2.2rem;
-  color: inherit;
+  /* color: inherit; */
+  color: #fff;
+  height: 40px;
+  padding: 5px 9px;
   cursor: pointer;
   transition: all 0.3s;
 }
