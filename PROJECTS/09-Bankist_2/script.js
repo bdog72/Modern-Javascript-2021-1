@@ -34,3 +34,31 @@ document.addEventListener('keydown', function (e) {
     closeModal();
   }
 });
+
+///////////////////////////////////////////////////
+
+// const header = document.querySelector('.header');
+
+// const message = document.createElement('div');
+// message.classList.add('cookie-message');
+// message.innerHTML =
+//   'We use cookies for improved functionality <button class="btn btn--close-cookie">Got It!</button> ';
+
+// header.append(message);
+
+// document
+//   .querySelector('.btn--close-cookie')
+//   .addEventListener('click', function () {
+//     message.remove();
+//   });
+
+// message.style.backgroundColor = '#37383d';
+// message.style.width = '120%';
+
+// document.documentElement.style.setProperty('--color-primary', 'blue');
+
+// const logo = document.querySelector('.nav__logo');
+// logo.setAttribute('bozo', 'dork');
+// console.log(logo);
+
+///////////////////////////////////////////////////
