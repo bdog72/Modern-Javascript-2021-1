@@ -277,7 +277,7 @@ h4 {
 .operations {
   max-width: 100rem;
   margin: 12rem auto 0 auto;
-
+  /* border: 5px solid #000; */
   background-color: #fff;
 }
 
