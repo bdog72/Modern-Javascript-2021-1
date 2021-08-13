@@ -20,6 +20,8 @@ const tabs = document.querySelectorAll('.operations__tab');
 const tabsContainer = document.querySelector('.operations__tab-container');
 const tabsContent = document.querySelectorAll('.operations__content');
 
+const dotContainer = document.querySelector('.dots');
+
 const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
@@ -108,25 +110,11 @@ nav.addEventListener('mouseout', handleHover.bind(1));
 
 // Sticky Navigation using Intersection Observer API
 // ///////////////////////////////////////
-// const obsCallback = function (entries, observer) {
-//   entries.forEach(entry => {
-//     console.log(entry);
-//   });
-// };
-// const obsOptions = {
-//   root: null,
-//   threshold: [0, 0.2],
-// };
-
-// const observer = new IntersectionObserver(obsCallback, obsOptions);
-// observer.observe(section1);
-
 const header = document.querySelector('.header');
 const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
   const [entry] = entries;
-  console.log(entry);
 
   if (!entry.isIntersecting) {
     nav.classList.add('sticky');
@@ -143,22 +131,144 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 
 headerObserver.observe(header);
 
-// Sticky Navigation
-///////////////////////////////////////
-// const initialCoords = section1.getBoundingClientRect();
-// console.log(initialCoords);
+// Reveal Section
+// ///////////////////////////////////////
+const allSections = document.querySelectorAll('.section');
 
-// window.addEventListener('scroll', function () {
-//   console.log(window.scrollY);
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
 
-//   if (this.window.scrollY > initialCoords.top) {
-//     nav.classList.add('sticky');
-//   } else {
-//     nav.classList.remove('sticky');
-//   }
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('section--hidden');
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+});
+
+// Lazy Loading Images
+// ///////////////////////////////////////
+const imgTargets = document.querySelectorAll('img[data-src]');
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener('load', function () {
+    entry.target.classList.remove('lazy-img');
+  });
+
+  observer.unobserve(entry.target);
+};
+
+const imgObserver = new IntersectionObserver(loadImg, {
+  root: null,
+  threshold: 0,
+  rootMargin: '200px',
+});
+
+imgTargets.forEach(function (img) {
+  imgObserver.observe(img);
+});
+
+// Slides
+// ///////////////////////////////////////
+const slides = document.querySelectorAll('.slide');
+
+const btnLeft = document.querySelector('.slider__btn--left');
+const btnRight = document.querySelector('.slider__btn--right');
+
+let curSlide = 0;
+const maxSlide = slides.length;
+
+const createDots = function () {
+  slides.forEach(function (_, i) {
+    const html = `
+      <button class="dots__dot" data-slide=${i}></button>
+    `;
+    dotContainer.insertAdjacentHTML('beforeend', html);
+  });
+};
+
+const activeDot = function (slide) {
+  document.querySelectorAll('.dots__dot').forEach(dot => {
+    dot.classList.remove('dots__dot--active');
+  });
+
+  document
+    .querySelector(`.dots__dot[data-slide="${slide}"]`)
+    .classList.add('dots__dot--active');
+};
+
+const gotToSlide = function (slide) {
+  slides.forEach(function (s, index) {
+    s.style.transform = `translateX(${100 * (index - slide)}%)`;
+  });
+};
+
+// Next Slide
+const nextSlide = function () {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  gotToSlide(curSlide);
+  activeDot(curSlide);
+};
+
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+  gotToSlide(curSlide);
+  activeDot(curSlide);
+};
+
+const init = function () {
+  gotToSlide(0);
+  createDots();
+  activeDot(0);
+};
+
+init();
+
+// Event Handlers
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide);
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'ArrowRight') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+
+dotContainer.addEventListener('click', function (e) {
+  if (e.target.classList.contains('dots__dot')) {
+    const { slide } = e.target.dataset;
+    gotToSlide(slide);
+    activeDot(slide);
+  }
+});
+
+// ///////////////////////////////////////
+// ///////////////////////////////////////
+
+// document.addEventListener('DOMContentLoaded', function (e) {
+//   console.log('DOM Loaded', e);
 // });
 
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
-///////////////////////////////////////////////////
+// window.addEventListener('load', e => {
+//   console.log(`Load`, e);
+// });
